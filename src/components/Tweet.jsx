@@ -1,26 +1,27 @@
-function Tweet() {
+import Actions from "./Actions";
+import Message from "./Message";
+import Timestamp from "./Timestamp";
+import User from "./User";
+import ProfileImage from "./ProfileImage";
+
+function Tweet({ tweet }) {
+  const { user, timestamp, message } = tweet;
+
   return (
     <div className="tweet">
-      <img
-        src="https://education-team-2020.s3.eu-west-1.amazonaws.com/web-dev/ih_logo.jpeg"
-        className="profile"
-        alt="profile"
-      />
-
+      {/* Pass the user's profile image URL to the ProfileImage component */}
+      <ProfileImage image="https://i.imgur.com/b0EdHVV.jpg" />
       <div className="body">
         <div className="top">
           <span className="user">
-            <span className="name">Ironhack</span>
-            <span className="handle">@ironhack</span>
+            <User name={user.name} handle={user.handle} />
           </span>
-
-          <span className="timestamp">Nov 30, 2020</span>
+          <Timestamp time={timestamp} />
         </div>
 
-        <p className="message">
-          On December 7th, we will be hosting a #webinar that will introduce you
-          to #SQL! Are you ready? 🚀
-        </p>
+        <Message message={message} />
+
+        <Actions />
 
         <div className="actions">
           {/* Font Awesome icons */}
