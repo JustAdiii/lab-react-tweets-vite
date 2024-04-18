@@ -1,5 +1,7 @@
-const ProfileImage = ({ image }) => (
-  <img src={image} className="profile" alt="profile" />
-);
-
-export default ProfileImage;
+export default function ProfileImage(props) {
+  return (
+    <div>
+      <img src={props.image} className="profile" alt="profile" />
+    </div>
+  );
+}
